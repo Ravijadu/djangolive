@@ -1,0 +1,115 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4"><b>SPAL</b></h1>
+          <h4><b> नमस्ते इंडिया ।  </b></h4>
+          <p class="lead">
+
+<b> स्पाल </b> कंपनी का उद्देश्य यह है कि स्टूडेंट जब स्टडी करने के लिए शहर में जाते है तब उनको घर - घर पता करना पड़ता है कि स्टडी के लिए कोई रूम अवेलेबल है या नहीं एवं स्टूडेंट को टेम्पो या पर्सनल व्हीकल से टाइम और मनी दोनों ही स्पेंड करना पड़ता है या फिर किसी प्रॉपर्टी डीलर के साथ भारी कमीशन देकर रूम लेना पड़ता है, दूसरी तरफ मकान मालिक को भी यहाँ चिंता रहती है कि मेरे जो रूम है ये बुक होंगे या नहीं ताकि मेरी आजीविका पर कोई  प्रभाव ना पड़े और मेरे घर का खर्चा आसानी से चलता रहे ।
+
+उपर्युक्त समस्या का समाधान करने के लिए इस स्पाल कंपनी को ऑर्गनाइज किया गया है ।
+भारत देश मैं स्टूडेंट के लिए शिक्षा के क्षेत्र मे एक ऐसा प्लेटफॉर्म उपलब्ध करवाना हमारी प्राथमिकता है । इस वेबसाइट पर स्टूडेंट को आसानी से पढाई के लिए रूम बहुत ही कम समय मैं मिल जायेगा जिससे स्टूडेंट का समय और मनी दोनों का ही लाभ प्राप्त होगा ।
+
+दूसरी तरफ हाउस मालिक को अपने रूम किराये पर देने के लिए दर-दर भटकना नहीं पड़ेगा और ना ही किसी एजेंट से मिलना पड़ेगा इस वेबसाइट पर लिस्टिंग करके आसानी से बुकिंग आर्डर ले सकेगा।
+
+अत: स्पाल कम्पनी आप सभी के उज्जवल भविष्य की कामना करती है एवम् आप सभी का आभार सदैव बना रहे ।
+
+जय हिंद इंडिया । <br>
+
+<b> THANKS WITH REGARDS <br>
+SPAL PVT LTD. <br>
+(BY DIRECTOR - CM KAJLA)</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We Search For The Perfect Home</h2>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <img src="{% static 'img/about.jpg' %}" alt="">
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
+            neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
+            commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+        </div>
+        <div class="col-md-4">
+          {% if mvp_realtors %}
+            {% for realtor in mvp_realtors %}
+            <div class="card">
+                <img class="card-img-top" src="{{ realtor.photo.url }}" alt="Seller of the month">
+                <div class="card-body">
+                  <h5 class="card-title">Seller Of The Month</h5>
+                  <h6 class="text-secondary">{{ realtor.name }}</h6>
+                  <p class="card-text">{{ realtor.description }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+        {% if realtors %}
+          {% for realtor in realtors %}
+          <div class="col-md-4">
+              <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
+              <h4>{{ realtor.name }}</h4>
+              <p class="text-success">
+                <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+              <hr>
+              <p>
+                <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+              <p>
+                <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>No Realtors Available</p>
+          </div>
+        {% endif %}       
+      </div>
+    </div>
+  </section>
+{% endblock %}
