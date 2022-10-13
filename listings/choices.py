@@ -25,6 +25,9 @@ price_choices = {
 }
 
 state_choices = {
+        '1' : 'RAJASTHAN',
+}
+district_choices = {
 
         'All': 'Ajmer',
         'AWR': 'Alwar',
