@@ -4,6 +4,7 @@ from .choices import price_choices, bedroom_choices,district_choices,state_choic
 
 from .models import Listing
 
+
 def index(request):
   listings = Listing.objects.order_by('-list_date').filter(is_published=True)
 

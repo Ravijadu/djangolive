@@ -13,7 +13,6 @@ def index(request):
         'state_choices': state_choices,
         'district_choices': district_choices,
         'bedroom_choices': bedroom_choices,
-        'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
     }
 

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | Browse Property Listings {% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="col-sm-4">
+  <h1 class="text-center alert alert-info">Owner Please Add Property</h1>
+  <form action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="Add">
+  </form>
+</div>
+</div>
+{% endblock %}
