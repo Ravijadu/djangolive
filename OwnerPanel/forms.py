@@ -5,4 +5,4 @@ from listings.models import Listing
 class OwnerRegistration(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ['title','address','district','state','zipcode','description','price','photo_main','photo_1']
+        fields = ['title','address','district','state','zipcode','description','price','photo_main','photo_1','photo_2','photo_3']
