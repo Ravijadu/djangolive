@@ -8,7 +8,7 @@ def owner(request):
     if fm.is_valid():
       fm.save()
       fm = OwnerRegistration()
-      return redirect('https://ravijadu12.herokuapp.com/')
+      return redirect('index')
   else:
     fm = OwnerRegistration()
   return render(request,'OwnerListing/owner.html',{'form':fm})
