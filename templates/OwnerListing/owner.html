@@ -6,14 +6,18 @@
 
 {% block content %}
 
-<div class="text-center alert alert-info">
- <div  class="text-center alert alert-info"><h1 >Room-Owner Please List Your Room</h1></div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4 class="text-centre alert alert-info">Owner Add Your Room</h4>
+            <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="ADD">
+            </form>
+        </div>
+    </div>
 
-  <form action="." method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" class="btn btn-success" value="Add">
-  </form>
-</div>
+{% endblock content %}
 
-{% endblock %}
+
+
